@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-//import './App.css'
+import "./App.css";
 
 function App() {
   const [randomPic, setRandomPic] = useState("");
@@ -35,27 +35,28 @@ function App() {
     getRandomDog();
   };
 
-
-
   return (
     <>
-      <div>
-        <div>
+      <div className="top-section">
+        <div className="pic-box">
           <img src={randomPic} alt="Random Dog" />
         </div>
         <button onClick={handleLikeBtn}>Like</button>
         <button onClick={handleDislikeBtn}>Dislike</button>
       </div>
+
       <hr />
+
       <div>
         <h3>Liked Dogs</h3>
-        <ul>
-          {
-            likedDogs.map((dog, index) => {
-              return <li key={index}><img src={dog} alt="Liked Dog" /></li>
-            }
-            )
-          }
+        <ul className="pic-list">
+          {likedDogs.map((dog, index) => {
+            return (
+              <li key={index}>
+                <img src={dog} alt="Liked Dog" />
+              </li>
+            );
+          })}
         </ul>
       </div>
 
@@ -63,13 +64,14 @@ function App() {
 
       <div>
         <h3>Disliked Dogs</h3>
-        <ul>
-          {
-            dislikedDogs.map((dog, index) => {
-              return <li key={index}><img src={dog} alt="Disliked Dog" /></li>
-            }
-            )
-          }
+        <ul className="pic-list">
+          {dislikedDogs.map((dog, index) => {
+            return (
+              <li key={index}>
+                <img src={dog} alt="Disliked Dog" />
+              </li>
+            );
+          })}
         </ul>
       </div>
     </>
